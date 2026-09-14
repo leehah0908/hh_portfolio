@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hanhee-lee.vercel.app/sitemap.xml

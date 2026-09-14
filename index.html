@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이한희 · 데이터 엔지니어</title>
+<meta name="description" content="데이터 엔지니어 이한희. Airflow 기반 LLM 파이프라인, 운영지표 DW/DM, 사내 데이터 플랫폼을 설계·구축·운영합니다.">
+<link rel="canonical" href="https://hanhee-lee.vercel.app/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="이한희 포트폴리오">
+<meta property="og:url" content="https://hanhee-lee.vercel.app/">
+<meta property="og:title" content="이한희 · 데이터 엔지니어">
+<meta property="og:description" content="LLM을 실제 파이프라인에 넣어 품질과 비용을 통제합니다. 파이프라인부터 플랫폼까지.">
+<meta property="og:image" content="https://hanhee-lee.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="bar">
+    <div class="who">
+      <b>이한희</b>
+      <span>Data Engineer</span>
+    </div>
+    <nav aria-label="주요 섹션">
+      <ul>
+        <li><a href="#capabilities">역량</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#career">경력</a></li>
+        <li><a href="#stack">기술 스택</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1) 히어로 -->
+  <section class="hero" aria-labelledby="intro">
+    <div class="wrap">
+      <h1 id="intro">이한희<span class="romanized">Lee Hanhee</span></h1>
+      <p class="role">데이터 엔지니어 · Data Engineer</p>
+      <p class="org">딥세일즈 (B2B 세일즈 인텔리전스)</p>
+      <p class="lede">새 도구를 배우는 데 거리낌이 없습니다. 처음 다뤄본 Airflow·LLM API·ECS를 1년 안에 운영 파이프라인과 사내 데이터 플랫폼으로 만들었고, 만든 것은 지금까지 직접 운영하며 책임지고 있습니다.</p>
+      <ul class="links">
+        <li><a href="mailto:leehah0908@gmail.com">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"/><path d="M3 5.5 10 11l7-5.5"/></svg>
+          leehah0908@gmail.com</a></li>
+        <li><a href="https://github.com/leehah0908">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7.5 17v-2.4c-2.6.5-3.2-1.2-3.2-1.2-.3-.8-.8-1.1-.8-1.1-.7-.5 0-.5 0-.5.8.1 1.2.8 1.2.8.7 1.2 1.9.9 2.4.7.1-.6.3-1 .6-1.2-2.1-.3-3.6-1.2-3.6-3.9 0-.9.3-1.6.8-2.1-.1-.3-.3-1.1.1-2.1 0 0 .7-.2 2.3.8a6.6 6.6 0 0 1 3.4 0c1.6-1 2.3-.8 2.3-.8.4 1 .2 1.8.1 2.1.5.5.8 1.2.8 2.1 0 2.7-1.5 3.6-3.6 3.9.4.3.7.9.7 1.8V17"/></svg>
+          github.com/leehah0908</a></li>
+        <li><a href="https://www.linkedin.com/in/hanhee-lee-a31b852b8">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="1.5"/><path d="M6.2 8.4V14M6.2 6.1v.1M9.5 14V8.4M9.5 10.6c0-1.3.9-2.2 2.1-2.2s2.2.9 2.2 2.4V14"/></svg>
+          LinkedIn</a></li>
+        <li><a href="https://leehah0908.tistory.com">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 3.5h9l3 3V16.5H4z"/><path d="M6.5 8h7M6.5 11h7M6.5 14h4"/></svg>
+          leehah0908.tistory.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 2) 핵심 역량 -->
+  <section id="capabilities" aria-labelledby="capabilities-title">
+    <div class="wrap-wide">
+      <span class="eyebrow">01 — Core capabilities</span>
+      <h2 class="sec-title" id="capabilities-title">핵심 역량</h2>
+      <div class="grid g3" style="margin-top: var(--s10);">
+        <article class="card">
+          <h3>LLM 파이프라인 설계</h3>
+          <p>멀티모달 LLM으로 비정형 자료를 구조화하고, 역할별로 분리한 프롬프트 체인과 사전 검증으로 출력을 방어하며, 토큰과 API 비용을 실행 단위로 계측합니다.</p>
+          <p class="applied">→ ICP 추론, 리드 소싱</p>
+        </article>
+        <article class="card">
+          <h3>데이터 파이프라인 · DW 구축·운영</h3>
+          <p>운영 DB의 히스토리 손실을 일간 스냅샷 DW로 우회하고, 파티션 단위 멱등 적재와 결손 검증으로 KPI 정확도를 지킵니다.</p>
+          <p class="applied">→ 운영지표 DW/DM</p>
+        </article>
+        <article class="card">
+          <h3>데이터 플랫폼 구축</h3>
+          <p>FastAPI + Next.js 사내 플랫폼을 설계부터 ECS 배포까지 단독 구축했습니다. 운영 DB 읽기 전용 격리와 듀얼 마이그레이션 체계를 갖췄습니다.</p>
+          <p class="applied">→ 사내 데이터 플랫폼</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3) 대표 프로젝트 -->
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="wrap-wide">
+      <span class="eyebrow">02 — Featured work</span>
+      <h2 class="sec-title" id="projects-title">대표 프로젝트</h2>
+      <p class="sec-note">설계·구현·운영을 단독으로 담당한 Airflow 기반 LLM 파이프라인 2건.</p>
+      <div class="grid g2" style="margin-top: var(--s10);">
+        <article class="card card-major">
+          <div>
+            <h3>ICP 추론 파이프라인</h3>
+            <p class="summary">고객사 세일즈 자료(PPT/PDF/DOCX)와 ICP 폼을 멀티모달 LLM으로 읽어 이상 고객 정의와 Apollo 검색 필터를 자동 생성합니다.</p>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <span class="figure">100+</span>
+              <span class="label">페이지 자료 1회 처리</span>
+              <span class="basis">2026-07~09 운영 로그 기준</span>
+            </div>
+            <div class="stat">
+              <span class="figure">4단계</span>
+              <span class="label">역할 분리 프롬프트 체인</span>
+              <span class="basis">system prompt 외부화 · S3</span>
+            </div>
+          </div>
+          <ul class="pills">
+            <li class="pill">Airflow</li>
+            <li class="pill">OpenAI Responses API</li>
+            <li class="pill">LibreOffice</li>
+            <li class="pill">S3</li>
+            <li class="pill">PostgreSQL</li>
+            <li class="pill">Dynamic Task Mapping</li>
+          </ul>
+          <a class="more" href="#icp-inference">자세히 보기 →</a>
+        </article>
+
+        <article class="card card-major">
+          <div>
+            <h3>LLM 기반 리드 소싱 파이프라인</h3>
+            <p class="summary">ICP 필터로 기업을 탐색해 LLM 2단 심사(기업 적합 → 직무 적합)를 거친 리드를 확보하고, 이메일 검증 후 적재합니다.</p>
+          </div>
+          <div class="stats">
+            <div class="stat">
+              <span class="figure">30~40</span>
+              <span class="label">월 고객사 × 300건 리드 제공</span>
+              <span class="basis">2026-07~09 운영 로그 기준</span>
+            </div>
+            <div class="stat">
+              <span class="figure">28%</span>
+              <span class="label">캐시로 절감한 리드 상세 API 호출</span>
+              <span class="basis">2026-07~09 운영 로그 기준</span>
+            </div>
+          </div>
+          <ul class="pills">
+            <li class="pill">Airflow</li>
+            <li class="pill">OpenAI</li>
+            <li class="pill">Apollo API</li>
+            <li class="pill">Instantly API</li>
+            <li class="pill">PostgreSQL 캐시</li>
+            <li class="pill">S3/parquet</li>
+          </ul>
+          <a class="more" href="#lead-sourcing">자세히 보기 →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4) 그 외 프로젝트 -->
+  <section aria-labelledby="other-title">
+    <div class="wrap-wide">
+      <span class="eyebrow">03 — Other work</span>
+      <h2 class="sec-title" id="other-title">그 외 프로젝트</h2>
+      <div class="grid g3" style="margin-top: var(--s10);">
+        <article class="card">
+          <h3>운영지표 DW/DM 파이프라인</h3>
+          <p>운영 DB 일간 스냅샷 → 일·주·월 KPI 14종 → Slack 자동 리포트. 파티션 멱등 적재, 결손 검증, 원장 불변 보정 레이어.</p>
+          <ul class="pills" style="margin-top: var(--s5);">
+            <li class="pill">Airflow</li><li class="pill">PostgreSQL</li><li class="pill">Slack Webhook</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>사내 데이터 플랫폼</h3>
+          <p>FastAPI 45 endpoint + Next.js 7화면. Postgres 3개(운영 RO/어드민/DW) 세션 분리, Alembic 듀얼 마이그레이션, ECS Fargate + GitHub Actions OIDC, pytest 48.</p>
+          <ul class="pills" style="margin-top: var(--s5);">
+            <li class="pill">FastAPI</li><li class="pill">Next.js</li><li class="pill">ECS</li><li class="pill">Alembic</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>KPI 대시보드 · 지표 거버넌스</h3>
+          <p>구간 지표(DM)와 시점 지표(운영 DB) 소스 분리, TTV 정의, 내부 계정 제외 규칙을 테스트로 고정.</p>
+          <ul class="pills" style="margin-top: var(--s5);">
+            <li class="pill">SQLAlchemy</li><li class="pill">Recharts</li><li class="pill">OpenAPI 타입 동기화</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5) 경력 -->
+  <section id="career" aria-labelledby="career-title">
+    <div class="wrap-wide">
+      <span class="eyebrow">04 — Experience</span>
+      <h2 class="sec-title" id="career-title">경력</h2>
+      <div class="timeline" style="margin-top: var(--s10);">
+        <article class="job">
+          <p class="when">2025.06 ~ 현재</p>
+          <div>
+            <h3>딥세일즈</h3>
+            <p class="meta">데이터 엔지니어 · 정규직</p>
+            <ul>
+              <li><b>운영지표 ETL 파이프라인</b> — DW/DM 설계·구축(PostgreSQL, RDS), 집계·적재 배치 DAG, 일·주간 지표 Slack 알림(Airflow)</li>
+              <li><b>AI 데이터 수집 자동화</b> — 고객사 자료 LLM 분석 → ICP 추론, 적합성 판별·스코어링(LLM API, Apollo API), 프롬프트 최적화로 품질·과금 개선, 전체 프로세스 오케스트레이션 DAG, Enrichment 캐싱으로 크레딧 절약</li>
+              <li><b>이벤트 기반 데이터 수집·분석</b> — PostHog/GA 수집 데이터 DW/DM 배치(Airflow, BigQuery, ClickHouse), 이벤트 Slack 알림, PostHog 자체 호스팅</li>
+              <li><b>사내 데이터 통합 플랫폼(FastAPI, Next.js)</b> — 운영 지표 대시보드, 고객사·리드·SQL·마케팅 데이터 관리</li>
+              <li><b>데이터 크롤링·전처리 파이프라인</b> — Selenium, BeautifulSoup4</li>
+            </ul>
+          </div>
+        </article>
+        <article class="job">
+          <p class="when">2023.02 ~ 2023.12</p>
+          <div>
+            <h3>국민대학교 석사 과정</h3>
+            <p class="meta">연구생</p>
+            <ul>
+              <li><b>프로야구 선수 바이오메카닉스 데이터 워크플로우</b> — 모션캡처·센서·포스플레이트 다중 소스 수집, 전처리·적재 구조 설계, 분석 데이터셋 산출, 인터랙티브 리포트 자동 생성·배포(QR), 선수 피드백</li>
+            </ul>
+          </div>
+        </article>
+        <article class="job">
+          <p class="when">2022.03 ~ 2022.08</p>
+          <div>
+            <h3>마이셀럽스</h3>
+            <p class="meta">데이터 엔지니어 인턴</p>
+            <ul>
+              <li>제품 정보 약 9만 건 · 리뷰 1,300만 건 이상 수집·적재 파이프라인 구축</li>
+              <li>데이터 최신화를 크롤링에서 API 방식으로 전환해 업무 주기 <b>3주 → 1주</b> 단축</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6) 개인 프로젝트 -->
+  <section aria-labelledby="side-title">
+    <div class="wrap-wide">
+      <span class="eyebrow">05 — Side project</span>
+      <h2 class="sec-title" id="side-title">개인 프로젝트</h2>
+      <article class="card card-major" style="margin-top: var(--s10);">
+        <div>
+          <h3>자미별</h3>
+          <p class="meta" style="font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); margin-top: var(--s2);">2026.07 ~ 진행 중 · 1인 개발 · 서비스 오픈 준비 중</p>
+          <p class="summary">생년월일시로 자미두수 명반을 계산하고, 마크다운 해석 문서를 근거로 LLM이 성격·운세·궁합 리포트를 생성하는 웹 서비스.</p>
+        </div>
+        <ul class="ops">
+          <li>명반 구조에 따라 해석 문서를 <b>결정론적으로 선택해 주입하는 구조적 RAG</b> — 임베딩 없음, 근거 추적 가능</li>
+          <li><b>Structured Outputs + 프리픽스 캐시 워밍</b> 후 병렬 fan-out, 실패 섹션만 1회 재시도</li>
+          <li>실행 단위 <b>토큰·비용 저장</b>, 카카오·네이버 OAuth, API 테스트 550개</li>
+        </ul>
+        <ul class="pills">
+          <li class="pill">FastAPI</li>
+          <li class="pill">SQLAlchemy(async)</li>
+          <li class="pill">PostgreSQL</li>
+          <li class="pill">OpenAI API</li>
+          <li class="pill">Next.js</li>
+          <li class="pill">Docker Compose</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- 7) 기술 스택 -->
+  <section id="stack" aria-labelledby="stack-title">
+    <div class="wrap-wide">
+      <span class="eyebrow">06 — Stack</span>
+      <h2 class="sec-title" id="stack-title">기술 스택</h2>
+      <dl class="rows" style="margin-top: var(--s10);">
+        <div>
+          <dt>언어</dt>
+          <dd><ul class="pills">
+            <li class="pill">Python</li><li class="pill">SQL (PostgreSQL, MySQL)</li><li class="pill">TypeScript</li>
+          </ul></dd>
+        </div>
+        <div>
+          <dt>데이터 · 파이프라인</dt>
+          <dd><ul class="pills">
+            <li class="pill">Airflow</li><li class="pill">Spark</li><li class="pill">BigQuery</li><li class="pill">PostgreSQL</li><li class="pill">S3</li><li class="pill">parquet</li><li class="pill">pandas</li><li class="pill">PostHog</li><li class="pill">Google Analytics</li>
+          </ul></dd>
+        </div>
+        <div>
+          <dt>클라우드 · 인프라</dt>
+          <dd><ul class="pills">
+            <li class="pill">AWS RDS</li><li class="pill">S3</li><li class="pill">ECS Fargate</li><li class="pill">ECR</li><li class="pill">Docker Compose</li><li class="pill">GitHub Actions</li>
+          </ul></dd>
+        </div>
+        <div>
+          <dt>LLM · AI</dt>
+          <dd><ul class="pills">
+            <li class="pill">OpenAI Responses API</li><li class="pill">멀티모달 입력</li><li class="pill">Structured Outputs</li><li class="pill">프롬프트 체인 설계·외부화</li><li class="pill">출력 검증</li><li class="pill">비용 계측</li>
+          </ul></dd>
+        </div>
+        <div>
+          <dt>기타</dt>
+          <dd><ul class="pills">
+            <li class="pill">FastAPI</li><li class="pill">Next.js</li><li class="pill">Alembic</li><li class="pill">pytest</li><li class="pill">Selenium</li><li class="pill">BeautifulSoup4</li>
+          </ul></dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 8) 학력·자격증 -->
+  <section aria-labelledby="edu-title">
+    <div class="wrap-wide">
+      <span class="eyebrow">07 — Education & certificates</span>
+      <h2 class="sec-title" id="edu-title">학력 · 자격증</h2>
+      <div class="grid g2" style="margin-top: var(--s10);">
+        <div>
+          <h3 style="font-size: 15px; font-weight: 600;">학력</h3>
+          <dl class="rows" style="margin-top: var(--s4);">
+            <div>
+              <dt>학사</dt>
+              <dd>
+                <p class="item"><b>경기대학교 산업경영공학과</b></p>
+                <p class="item mono" style="font-size: 12.5px; color: var(--faint);">2016.03 ~ 2023.02</p>
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <div>
+          <h3 style="font-size: 15px; font-weight: 600;">자격증</h3>
+          <dl class="rows" style="margin-top: var(--s4);">
+            <div>
+              <dt>SQLD</dt>
+              <dd><p class="item">한국데이터산업진흥원 · <span class="mono">2024.08</span></p></dd>
+            </div>
+            <div>
+              <dt>정보처리기사</dt>
+              <dd><p class="item">한국산업인력공단 · <span class="mono">2024.06</span></p></dd>
+            </div>
+            <div>
+              <dt>ADsP</dt>
+              <dd><p class="item">한국데이터산업진흥원 · <span class="mono">2020.12</span></p></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap-wide">
+    <ul class="links" style="margin-top: 0;">
+      <li><a href="mailto:leehah0908@gmail.com">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"/><path d="M3 5.5 10 11l7-5.5"/></svg>
+        leehah0908@gmail.com</a></li>
+      <li><a href="https://github.com/leehah0908">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7.5 17v-2.4c-2.6.5-3.2-1.2-3.2-1.2-.3-.8-.8-1.1-.8-1.1-.7-.5 0-.5 0-.5.8.1 1.2.8 1.2.8.7 1.2 1.9.9 2.4.7.1-.6.3-1 .6-1.2-2.1-.3-3.6-1.2-3.6-3.9 0-.9.3-1.6.8-2.1-.1-.3-.3-1.1.1-2.1 0 0 .7-.2 2.3.8a6.6 6.6 0 0 1 3.4 0c1.6-1 2.3-.8 2.3-.8.4 1 .2 1.8.1 2.1.5.5.8 1.2.8 2.1 0 2.7-1.5 3.6-3.6 3.9.4.3.7.9.7 1.8V17"/></svg>
+        github.com/leehah0908</a></li>
+      <li><a href="https://www.linkedin.com/in/hanhee-lee-a31b852b8">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="1.5"/><path d="M6.2 8.4V14M6.2 6.1v.1M9.5 14V8.4M9.5 10.6c0-1.3.9-2.2 2.1-2.2s2.2.9 2.2 2.4V14"/></svg>
+        LinkedIn</a></li>
+      <li><a href="https://leehah0908.tistory.com">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 3.5h9l3 3V16.5H4z"/><path d="M6.5 8h7M6.5 11h7M6.5 14h4"/></svg>
+        leehah0908.tistory.com</a></li>
+    </ul>
+    <p class="updated">마지막 갱신 2026-09</p>
+  </div>
+</footer>
+
+
+<!-- 대표 프로젝트 상세 (모달) -->
+<dialog class="modal" id="icp-inference" aria-labelledby="icp-title">
+  <article class="modal-box">
+    <header class="modal-head">
+      <div class="titles">
+        <span class="eyebrow">Featured work — 01</span>
+        <h2 id="icp-title">ICP 추론 파이프라인</h2>
+      </div>
+      <button class="modal-close" type="button" data-close aria-label="닫기">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9"/></svg>
+      </button>
+    </header>
+    <div class="modal-body">
+      <div class="modal-intro">
+        <p class="facts"><span>2025.09 ~ 현재</span>
+        <span>설계 · 구현 · 운영 단독</span></p>
+        <p class="summary">고객사가 올린 세일즈 자료(PPT/PDF/DOCX)와 ICP 폼을 멀티모달 LLM으로 읽어, 이상 고객 정의(ICP)와 Apollo 검색 필터를 자동 생성합니다.</p>
+        <ul class="pills"><li class="pill">Airflow</li>
+        <li class="pill">OpenAI Responses API</li>
+        <li class="pill">LibreOffice</li>
+        <li class="pill">S3</li>
+        <li class="pill">PostgreSQL</li></ul>
+      </div>
+
+      <section aria-labelledby="icp-s1t">
+        <span class="eyebrow">01</span>
+        <h2 class="sec-title" id="icp-s1t">문제와 배경</h2>
+        <div class="narrow" style="margin-top: var(--s5);">
+          <p>고객사가 온보딩에서 올린 세일즈 자료와 ICP 폼은 형식이 제각각입니다. PPT·PDF·DOCX가 섞이고, 한국어와 영어가 함께 쓰입니다. 이걸 사람이 읽고 Apollo 검색 조건으로 옮기는 작업은 담당자마다 결과가 달랐고, 고객사가 늘수록 병목이 됐습니다.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="icp-s2t">
+        <span class="eyebrow">02</span>
+        <h2 class="sec-title" id="icp-s2t">전체 흐름도</h2>
+        <figure class="wide" style="margin-top: var(--s6);">
+          <div class="diagram scroll-x">
+            <svg viewBox="0 0 960 596" role="img" aria-label="ICP 추론 파이프라인 흐름도: 운영 DB 증분 조회에서 S3 원본 자료, PDF 정규화, PNG 렌더를 거쳐 LLM 3회 호출과 사전 검증을 지나 S3 client_icp.json과 하류 리드 소싱 파이프라인으로 이어진다.">
+              <defs>
+                <marker id="arwA" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" class="d-ah"/></marker>
+              </defs>
+
+              <!-- bypass -->
+              <path class="d-a-dash" d="M362 60 V30 H864 V60" marker-end="url(#arwA)"/>
+              <text class="d-lbl" x="613" y="22" text-anchor="middle">자료 미변경 시 정규화 PDF 재사용</text>
+
+              <!-- row 1 -->
+              <rect class="d-store" x="8" y="60" width="204" height="74" rx="12"/>
+              <text class="d-t" x="26" y="86">운영 DB</text>
+              <text class="d-s" x="26" y="105">변경 고객사 프로필·자료</text>
+              <text class="d-s" x="26" y="122">3h 증분 · 자격 필터 SQL</text>
+
+              <rect class="d-store" x="260" y="60" width="204" height="74" rx="12"/>
+              <text class="d-t" x="278" y="86">S3 · 원본 자료</text>
+              <text class="d-s" x="278" y="105">PPT / PDF / DOCX</text>
+
+              <rect class="d-box" x="512" y="60" width="204" height="74"/>
+              <text class="d-t" x="530" y="86">LibreOffice → PDF</text>
+              <text class="d-s" x="530" y="105">형식 정규화</text>
+              <text class="d-s" x="530" y="122">20MB · 200p 가드</text>
+
+              <rect class="d-box" x="764" y="60" width="188" height="74"/>
+              <text class="d-t" x="782" y="86">페이지 PNG 렌더</text>
+              <text class="d-s" x="782" y="105">멀티모달 입력용</text>
+
+              <path class="d-a" d="M212 97 H256" marker-end="url(#arwA)"/>
+              <path class="d-a" d="M464 97 H508" marker-end="url(#arwA)"/>
+              <path class="d-a" d="M716 97 H760" marker-end="url(#arwA)"/>
+              <path class="d-a" d="M858 134 V166 H110 V194" marker-end="url(#arwA)"/>
+
+              <!-- row 2 -->
+              <rect class="d-llm" x="8" y="196" width="204" height="74"/>
+              <text class="d-acc" x="26" y="222">① LLM</text>
+              <text class="d-t" x="26" y="243" style="font-size:12.5px">세일즈 자료</text>
+              <text class="d-t" x="26" y="260" style="font-size:12.5px">→ 마크다운 재구성</text>
+
+              <rect class="d-llm" x="260" y="196" width="204" height="74"/>
+              <text class="d-acc" x="278" y="222">② LLM</text>
+              <text class="d-t" x="278" y="243" style="font-size:12.5px">Apollo 필터 생성</text>
+              <text class="d-s" x="278" y="261">신규 고객사만</text>
+
+              <rect class="d-box" x="512" y="196" width="204" height="74"/>
+              <text class="d-t" x="530" y="220">사전 검증</text>
+              <text class="d-s" x="530" y="239">industry ID 148 교집합</text>
+              <text class="d-s" x="530" y="256">지역→국가 198 · 직무→키워드 104</text>
+
+              <rect class="d-store" x="764" y="196" width="188" height="74" rx="12"/>
+              <text class="d-t" x="782" y="222">S3</text>
+              <text class="d-s" x="782" y="241">apollo_filter.json</text>
+
+              <path class="d-a" d="M212 233 H256" marker-end="url(#arwA)"/>
+              <text class="d-lbl" x="234" y="222" text-anchor="middle">신규</text>
+              <path class="d-a" d="M464 233 H508" marker-end="url(#arwA)"/>
+              <path class="d-a" d="M716 233 H760" marker-end="url(#arwA)"/>
+
+              <!-- skip branch -->
+              <path class="d-a-dash" d="M110 270 V306 H360 V334" marker-end="url(#arwA)"/>
+              <text class="d-lbl" x="120" y="298">기존 고객사</text>
+              <rect class="d-ext" x="260" y="336" width="204" height="58"/>
+              <text class="d-t" x="278" y="360">필터 생성 self-skip</text>
+              <text class="d-s" x="278" y="379">수동 튠 필터 보존</text>
+
+              <!-- merge into row 3 -->
+              <path class="d-note" d="M362 394 V424"/>
+              <path class="d-a" d="M858 270 V424 H110 V450" marker-end="url(#arwA)"/>
+
+              <!-- row 3 -->
+              <rect class="d-llm" x="8" y="452" width="204" height="74"/>
+              <text class="d-acc" x="26" y="478">③ LLM</text>
+              <text class="d-t" x="26" y="499" style="font-size:12.5px">ICP 4축 추출</text>
+              <text class="d-s" x="26" y="517">export_type 렌즈 주입</text>
+
+              <rect class="d-store" x="260" y="452" width="204" height="74" rx="12"/>
+              <text class="d-t" x="278" y="478">S3</text>
+              <text class="d-s" x="278" y="497">client_icp.json</text>
+
+              <rect class="d-ext" x="512" y="452" width="204" height="74"/>
+              <text class="d-t" x="530" y="478">리드 소싱 파이프라인</text>
+              <text class="d-s" x="530" y="497">하류 DAG</text>
+
+              <path class="d-a" d="M212 489 H256" marker-end="url(#arwA)"/>
+              <path class="d-a" d="M464 489 H508" marker-end="url(#arwA)"/>
+
+              <!-- note -->
+              <rect class="d-note" x="764" y="452" width="188" height="74"/>
+              <text class="d-lbl" x="782" y="476">LLM 3회 호출</text>
+              <text class="d-lbl" x="782" y="493">동시 실행 상한 4</text>
+              <text class="d-lbl" x="782" y="510">429 / 5xx만 재시도</text>
+
+              <!-- legend -->
+              <g>
+                <rect class="d-box" x="8" y="556" width="18" height="12"/>
+                <text class="d-lbl" x="34" y="566">내부 처리</text>
+                <rect class="d-ext" x="128" y="556" width="18" height="12"/>
+                <text class="d-lbl" x="154" y="566">외부 시스템</text>
+                <rect class="d-store" x="256" y="556" width="18" height="12" rx="4"/>
+                <text class="d-lbl" x="282" y="566">데이터 저장소</text>
+                <rect class="d-llm" x="392" y="556" width="18" height="12"/>
+                <text class="d-lbl" x="418" y="566">LLM 호출</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>다이어그램 A — ICP 추론 흐름 (3시간 증분 스케줄)</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="icp-s3t">
+        <span class="eyebrow">03</span>
+        <h2 class="sec-title" id="icp-s3t">설계 결정</h2>
+        <div class="decisions narrow" style="margin-top: var(--s8);">
+          <article class="decision">
+            <div>
+              <h3>LLM 호출 대상을 SQL에서 먼저 줄인다</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>3시간 주기로 변경분만 스캔하되, 활성 구독·온보딩 완료·내부 계정 제외 조건을 SQL <code>EXISTS</code>로 걸어 LLM에 도달하는 건수 자체를 최소화했습니다.</dd></div>
+                <div><dt>왜</dt><dd>LLM 비용과 지연은 호출 건수에 선형으로 붙습니다. 가장 싼 필터는 DB 안에 있습니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>파이프라인 뒷단에서 걸러내는 방식은 이미 지불한 토큰을 버리게 됩니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="decision">
+            <div>
+              <h3>자료를 이미지로 정규화해 멀티모달로 한 번에 읽힌다</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>모든 형식을 LibreOffice로 PDF로 통일 → 페이지 PNG → 멀티모달 입력. 20MB·200페이지 가드를 둡니다.</dd></div>
+                <div><dt>왜</dt><dd>세일즈 자료는 표와 도식에 정보가 실려 있어, 레이아웃째로 봐야 의미가 유지됩니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>텍스트 추출 방식은 표·도식이 많은 자료에서 정보를 잃어 채택하지 않았습니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="decision">
+            <div>
+              <h3>자료 변경 여부로 재처리 범위를 나눈다</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>프로필만 바뀐 경우 이미 정규화한 PDF를 재사용해 변환 단계를 생략하고, 자료가 바뀐 경우만 풀 리빌드합니다.</dd></div>
+                <div><dt>왜</dt><dd>변환은 CPU를, 재처리는 토큰을 씁니다. 바뀐 것만 다시 만드는 게 둘 다 아낍니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>매 실행 전체 리빌드는 구현이 단순하지만 고객사 수에 비례해 비용이 증가합니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="decision">
+            <div>
+              <h3>LLM에 맡길 것과 맡기지 않을 것을 갈라놓는다</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>지역→국가(198개), 직무→키워드(104개) 전개는 결정론적 매핑으로 처리하고, LLM은 자료에서만 알 수 있는 키워드·산업·수출 유형만 추론합니다. LLM이 낸 산업 ID는 148개 사전과 교집합으로 검증해 위조 ID를 제거합니다.</dd></div>
+                <div><dt>왜</dt><dd>사전이 있는 문제를 LLM에 맡기면 검증 부담만 늘어납니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>전개까지 LLM에 맡기면 출력 토큰이 커지고, 존재하지 않는 ID가 섞여 들어옵니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="decision">
+            <div>
+              <h3>기존 고객사의 수동 튠 필터를 보존한다</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>신규 고객사는 필터까지 생성하고, 기존 고객사는 필터 생성 단계를 self-skip하며 ICP 정의만 갱신합니다.</dd></div>
+                <div><dt>왜</dt><dd>운영 중 GTM팀이 손으로 다듬은 필터가 자동 생성으로 덮이면 리드 품질이 후퇴합니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>DAG를 두 개로 분리하지 않고 Airflow trigger rule 하나로 두 경로를 표현해, 운영 대상이 늘지 않습니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="icp-s4t">
+        <span class="eyebrow">04</span>
+        <h2 class="sec-title" id="icp-s4t">프롬프트 구조</h2>
+        <p class="sec-note narrow">역할별로 분리한 4단계 프롬프트 체인. 각 단계는 한 가지 질문에만 답하고, 앞 단계의 출력이 다음 단계의 입력이 됩니다.</p>
+
+        <figure class="wide" style="margin-top: var(--s8);">
+          <div class="diagram scroll-x">
+            <svg viewBox="0 0 960 252" role="img" aria-label="4단계 프롬프트 체인: 재구성, 필터 생성, ICP 추출, 판별·선택. 각 단계의 입력과 출력이 화살표로 이어진다.">
+              <defs>
+                <marker id="arwC" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" class="d-ah"/></marker>
+              </defs>
+
+              <rect class="d-llm" x="1" y="24" width="202" height="186"/>
+              <text class="d-acc" x="19" y="52" style="font-size:13px">① 재구성</text>
+              <text class="d-lbl" x="19" y="82">INPUT</text>
+              <text class="d-s" x="19" y="100">자료 이미지</text>
+              <text class="d-s" x="19" y="117">+ ICP 폼</text>
+              <text class="d-lbl" x="19" y="150">OUTPUT</text>
+              <text class="d-t" x="19" y="169" style="font-size:12.5px">마크다운</text>
+              <text class="d-s" x="19" y="187">사실만 · 추론 금지</text>
+
+              <rect class="d-llm" x="253" y="24" width="202" height="186"/>
+              <text class="d-acc" x="271" y="52" style="font-size:13px">② 필터 생성</text>
+              <text class="d-lbl" x="271" y="82">INPUT</text>
+              <text class="d-s" x="271" y="100">① 마크다운</text>
+              <text class="d-lbl" x="271" y="150">OUTPUT</text>
+              <text class="d-t" x="271" y="169" style="font-size:12.5px">Apollo 필터 JSON</text>
+              <text class="d-s" x="271" y="187">industry · keyword</text>
+              <text class="d-s" x="271" y="204">· export_type</text>
+
+              <rect class="d-llm" x="505" y="24" width="202" height="186"/>
+              <text class="d-acc" x="523" y="52" style="font-size:13px">③ ICP 추출</text>
+              <text class="d-lbl" x="523" y="82">INPUT</text>
+              <text class="d-s" x="523" y="100">① 마크다운</text>
+              <text class="d-s" x="523" y="117">+ export_type 렌즈</text>
+              <text class="d-lbl" x="523" y="150">OUTPUT</text>
+              <text class="d-t" x="523" y="169" style="font-size:12.5px">ICP JSON 4축</text>
+              <text class="d-s" x="523" y="187">industry · product</text>
+              <text class="d-s" x="523" y="204">· expand · contact_fit</text>
+
+              <rect class="d-llm" x="757" y="24" width="202" height="186"/>
+              <text class="d-acc" x="775" y="52" style="font-size:13px">④ 판별 · 선택</text>
+              <text class="d-lbl" x="775" y="82">INPUT</text>
+              <text class="d-s" x="775" y="100">③ ICP JSON</text>
+              <text class="d-s" x="775" y="117">+ 기업 · 재직자</text>
+              <text class="d-lbl" x="775" y="150">OUTPUT</text>
+              <text class="d-t" x="775" y="169" style="font-size:12.5px">eligible</text>
+              <text class="d-t" x="775" y="187" style="font-size:12.5px">/ 담당자 1인</text>
+              <text class="d-s" x="775" y="204">리드 소싱에서 사용</text>
+
+              <path class="d-a" d="M203 117 H249" marker-end="url(#arwC)"/>
+              <path class="d-a" d="M455 117 H501" marker-end="url(#arwC)"/>
+              <path class="d-a" d="M707 117 H753" marker-end="url(#arwC)"/>
+              <text class="d-lbl" x="1" y="240">system prompt는 S3에 외부화 · 정적 system / 가변 user 분리로 prefix cache 적중</text>
+            </svg>
+          </div>
+          <figcaption>다이어그램 C — 4단계 프롬프트 체인</figcaption>
+        </figure>
+
+        <div class="wide" style="margin-top: var(--s12);">
+          <h3 style="font-size:17px; font-weight:600;">LLM에 맡긴 것 / 룰로 고정한 것</h3>
+          <div class="scroll-x" style="margin-top: var(--s4);">
+            <table>
+              <thead>
+                <tr><th scope="col" style="width:52%">LLM에 맡긴 것</th><th scope="col">룰로 고정한 것</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>자료 이미지 → 마크다운 재구성 (사실만, 추론 금지, 도식은 “Figure:”로 서술)</td><td>지역 → 국가 <span class="num">198</span>개 전개</td></tr>
+                <tr><td>바이어 산업·키워드 추론, 명시 ICP + 확장 ICP</td><td>직무 → 키워드 <span class="num">104</span>개 전개</td></tr>
+                <tr><td>고객사 비즈니스 모델 분류 (4유형 + unknown)</td><td>산업 ID 화이트리스트 <span class="num">148</span>개 교집합 검증</td></tr>
+                <tr><td>ICP 4축 키워드 리스트 (8~12개, 3~5단어)</td><td>규모 · 제외 국가 · 제외 직무 기본값</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="narrow" style="margin-top: var(--s12);">
+          <h3 style="font-size:17px; font-weight:600;">프롬프트 설계 원칙</h3>
+          <div class="principles" style="margin-top: var(--s5);">
+            <article class="principle">
+              <div>
+                <h4>공통 섹션 템플릿</h4>
+                <p>모든 system prompt가 <code>[Role]</code> · <code>[Context]</code> · <code>[Task]</code> · <code>[Input]</code> · <code>[Guidelines/Rules]</code> · <code>[Priority]</code> · <code>[Output]</code> 순서로 통일되어 있습니다. 수정과 리뷰가 쉽습니다.</p>
+              </div>
+            </article>
+            <article class="principle">
+              <div>
+                <h4>두 주체 분리</h4>
+                <p>“고객사(판매자)”와 “바이어(구매자)”를 혼동하지 않도록 별도 섹션으로 명시합니다. 산업·키워드는 바이어 기준, <code>export_type</code>은 고객사 기준입니다.</p>
+              </div>
+            </article>
+            <article class="principle">
+              <div>
+                <h4>export_type을 체인 전체의 렌즈로</h4>
+                <p>2단계에서 분류한 고객사 비즈니스 모델(브랜드 수출 / OEM·ODM / 기술 서비스 / 복합)이 3·4단계 프롬프트에 주입되어 “누가 바이어인가”의 방향을 결정합니다. 기업 판별은 유형별 system prompt 4개로 분기합니다.</p>
+              </div>
+            </article>
+            <article class="principle">
+              <div>
+                <h4>출력 계약을 좁게</h4>
+                <p>JSON만 허용하고, 필드·항목 수·단어 길이·용어 수준(카테고리 수준, 브랜드명 금지, 직무는 기능만·직급 금지)까지 명시합니다. 코드에서 파싱 후 사전 검증을 거칩니다.</p>
+              </div>
+            </article>
+            <article class="principle">
+              <div>
+                <h4>내부 추론, 외부 출력 최소</h4>
+                <p>“생각은 내부에서, 출력하지 말 것” 지시와 함께 대량 판정은 reasoning 없이 실행해 출력 토큰과 지연을 줄입니다. system은 정적, user는 가변으로 나눠 prefix cache 적중을 유도합니다.</p>
+              </div>
+            </article>
+          </div>
+          <p class="note-box">프롬프트 원문은 <b>S3에 외부화</b>되어 코드 배포 없이 개정합니다. 이 페이지에는 구조와 원칙만 담았습니다.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="icp-s5t">
+        <span class="eyebrow">05</span>
+        <h2 class="sec-title" id="icp-s5t">운영과 비용 통제</h2>
+        <ul class="ops narrow" style="margin-top: var(--s6);">
+          <li><b>Dynamic Task Mapping</b> + 동시 실행 상한 4로 provider rate limit 안에서 병렬 처리</li>
+          <li><b>429/5xx만 백오프 재시도</b>, 비-429 4xx는 즉시 실패 — 재시도해도 결과가 같은 오류에 시간을 쓰지 않습니다</li>
+          <li>개별 파일 실패는 skip, <b>전부 실패한 경우만 DAG fail</b></li>
+          <li>필터 매칭 기업 수를 <b>사전 조회</b>해 필터 품질을 소싱 전에 계측</li>
+          <li>GTM팀용 <b>reset / rebuild 수동 DAG</b> 제공 — 운영 개입에 엔지니어가 필요하지 않습니다</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="icp-s6t">
+        <span class="eyebrow">06</span>
+        <h2 class="sec-title" id="icp-s6t">결과</h2>
+        <div class="wide" style="margin-top: var(--s6);">
+          <div class="scroll-x">
+            <table>
+              <caption>2026-07~09 운영 로그 기준</caption>
+              <thead>
+                <tr><th scope="col" style="width:46%">항목</th><th scope="col">값</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">자료 1건 처리 규모</th><td class="figure-cell">최대 100+ 페이지</td></tr>
+                <tr><th scope="row">처리 시간 (수동 재실행 기준)</th><td class="figure-cell">평균 약 3분</td></tr>
+                <tr><th scope="row">신규 고객사 필터 생성</th><td class="figure-cell">완전 자동화</td></tr>
+                <tr><th scope="row">고객사 1건당 LLM 호출</th><td class="figure-cell">3회 고정</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">근거 시점: 2026-07~09 운영 로그</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="icp-s7t">
+        <span class="eyebrow">07</span>
+        <h2 class="sec-title" id="icp-s7t">배운 점과 한계</h2>
+        <div class="lessons narrow" style="margin-top: var(--s6);">
+          <article class="lesson">
+            <h3>배운 점 — 검증은 프롬프트가 아니라 코드에서</h3>
+            <p>“존재하지 않는 ID를 만들지 말라”는 지시를 얼마나 강하게 써도 위조 ID는 나옵니다. 사전과의 교집합 검증을 코드에 넣은 뒤부터 이 문제는 사라졌습니다. 프롬프트로 지킬 수 있는 것과 코드로만 지킬 수 있는 것을 구분하게 됐습니다.</p>
+          </article>
+          <article class="lesson">
+            <h3>한계 — 증분 윈도우가 실행 시각 기준</h3>
+            <p>변경분 스캔 구간이 실행 시각을 기준으로 계산되어, 스케줄이 지연되면 그 사이 변경이 누락될 수 있습니다. <code>data_interval</code> 기반으로 바꾸는 개선을 예정하고 있습니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <nav class="prev-next modal-next" aria-label="다른 프로젝트">
+        <a href="#lead-sourcing">
+          <span class="dir">다른 프로젝트 →</span>
+          <span class="name">LLM 기반 리드 소싱 파이프라인</span>
+        </a>
+      </nav>
+    </div>
+  </article>
+</dialog>
+
+<dialog class="modal" id="lead-sourcing" aria-labelledby="ls-title">
+  <article class="modal-box">
+    <header class="modal-head">
+      <div class="titles">
+        <span class="eyebrow">Featured work — 02</span>
+        <h2 id="ls-title">LLM 기반 리드 소싱 파이프라인</h2>
+      </div>
+      <button class="modal-close" type="button" data-close aria-label="닫기">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9"/></svg>
+      </button>
+    </header>
+    <div class="modal-body">
+      <div class="modal-intro">
+        <p class="facts"><span>2025.10 ~ 현재</span>
+        <span>설계 · 구현 · 운영 단독</span></p>
+        <p class="summary">ICP 필터로 해외 기업을 탐색해 LLM 2단 심사(기업 적합 → 직무 적합)를 거친 리드를 확보하고, 이메일 검증 후 적재합니다.</p>
+        <ul class="pills"><li class="pill">Airflow</li>
+        <li class="pill">OpenAI</li>
+        <li class="pill">Apollo API</li>
+        <li class="pill">Instantly API</li>
+        <li class="pill">PostgreSQL</li>
+        <li class="pill">S3/parquet</li></ul>
+      </div>
+
+      <section aria-labelledby="ls-s1t">
+        <span class="eyebrow">01</span>
+        <h2 class="sec-title" id="ls-s1t">문제와 배경</h2>
+        <div class="narrow" style="margin-top: var(--s5);">
+          <p>고객사별 ICP에 맞는 해외 바이어 리드를 매월 수백 건씩 제공해야 합니다. 그런데 Apollo 크레딧과 LLM 비용은 리드 수에 비례해 늘고, 같은 기업을 다시 소싱하는 중복도 발생했습니다. 품질을 유지하면서 건당 비용을 내리는 것이 이 파이프라인의 과제였습니다.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="ls-s2t">
+        <span class="eyebrow">02</span>
+        <h2 class="sec-title" id="ls-s2t">전체 흐름도</h2>
+        <figure class="wide" style="margin-top: var(--s6);">
+          <div class="diagram scroll-x">
+            <svg viewBox="0 0 960 700" role="img" aria-label="리드 소싱 파이프라인 흐름도: REST 트리거와 쿼터 보정에서 Apollo 기업 검색, 검수 이력 대조, 캐시 조회와 enrich를 거쳐 LLM 2단 심사, Instantly 캠페인 업로드, 30분 후 검증 assertion과 S3 parquet 적재로 이어진다.">
+              <defs>
+                <marker id="arwB" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L8 4 L0 8 Z" class="d-ah"/></marker>
+              </defs>
+
+              <!-- row 1 -->
+              <rect class="d-ext" x="8" y="60" width="204" height="74"/>
+              <text class="d-t" x="26" y="86">REST 트리거</text>
+              <text class="d-s" x="26" y="105">고객사 · ICP · 쿼터</text>
+
+              <rect class="d-box" x="260" y="60" width="204" height="74"/>
+              <text class="d-t" x="278" y="86">쿼터 × 1.33</text>
+              <text class="d-s" x="278" y="105">이메일 검증 손실 보정</text>
+
+              <rect class="d-ext" x="512" y="60" width="204" height="74"/>
+              <text class="d-t" x="530" y="86">Apollo 기업 검색</text>
+              <text class="d-s" x="530" y="105">100건 / page</text>
+
+              <rect class="d-box" x="764" y="60" width="188" height="74"/>
+              <text class="d-t" x="782" y="86">검수 이력 대조</text>
+              <text class="d-s" x="782" y="105">이미 본 기업 스킵</text>
+              <text class="d-s" x="782" y="122">S3 이력 전량</text>
+
+              <path class="d-a" d="M212 97 H256" marker-end="url(#arwB)"/>
+              <path class="d-a" d="M464 97 H508" marker-end="url(#arwB)"/>
+              <path class="d-a" d="M716 97 H760" marker-end="url(#arwB)"/>
+              <path class="d-a" d="M858 134 V166 H110 V196" marker-end="url(#arwB)"/>
+
+              <!-- row 2 -->
+              <rect class="d-ext" x="8" y="198" width="204" height="74"/>
+              <text class="d-t" x="26" y="224">컨택 존재 확인</text>
+              <text class="d-s" x="26" y="243">Apollo · 429 백오프</text>
+
+              <rect class="d-store" x="260" y="198" width="204" height="74" rx="12"/>
+              <text class="d-t" x="278" y="224">캐시 조회</text>
+              <text class="d-s" x="278" y="243">PostgreSQL · 벌크 1회</text>
+
+              <rect class="d-ext" x="512" y="198" width="204" height="74"/>
+              <text class="d-t" x="530" y="224">Apollo enrich</text>
+              <text class="d-s" x="530" y="243">미스 건만</text>
+
+              <rect class="d-store" x="764" y="198" width="188" height="74" rx="12"/>
+              <text class="d-t" x="782" y="224">캐시 저장</text>
+              <text class="d-s" x="782" y="243">ON CONFLICT</text>
+              <text class="d-s" x="782" y="260">DO NOTHING</text>
+
+              <path class="d-a" d="M212 235 H256" marker-end="url(#arwB)"/>
+              <path class="d-a" d="M464 235 H508" marker-end="url(#arwB)"/>
+              <text class="d-lbl" x="486" y="224" text-anchor="middle">미스</text>
+              <path class="d-a" d="M716 235 H760" marker-end="url(#arwB)"/>
+              <path class="d-note" d="M362 272 V308"/>
+              <text class="d-lbl" x="372" y="298">히트</text>
+              <path class="d-a" d="M858 272 V308 H110 V336" marker-end="url(#arwB)"/>
+
+              <!-- row 3 -->
+              <rect class="d-llm" x="8" y="338" width="204" height="82"/>
+              <text class="d-acc" x="26" y="364">④-1 LLM</text>
+              <text class="d-t" x="26" y="385" style="font-size:12.5px">기업 적합 판정</text>
+              <text class="d-s" x="26" y="404">노이즈 필터 · 유형별 4개</text>
+
+              <rect class="d-llm" x="260" y="338" width="204" height="82"/>
+              <text class="d-acc" x="278" y="364">④-2 LLM</text>
+              <text class="d-t" x="278" y="385" style="font-size:12.5px">담당자 1인 선택</text>
+              <text class="d-s" x="278" y="404">우선순위 체인</text>
+
+              <rect class="d-box" x="512" y="338" width="204" height="82"/>
+              <text class="d-t" x="530" y="364">리드 상세 확보</text>
+              <text class="d-s" x="530" y="383">캐시 히트 or</text>
+              <text class="d-s" x="530" y="400">Apollo people/match</text>
+
+              <rect class="d-ext" x="764" y="338" width="188" height="82"/>
+              <text class="d-t" x="782" y="364">Instantly 캠페인</text>
+              <text class="d-s" x="782" y="383">생성 · 업로드</text>
+              <text class="d-s" x="782" y="400">이메일 검증 위임</text>
+
+              <path class="d-a" d="M212 379 H256" marker-end="url(#arwB)"/>
+              <path class="d-a" d="M464 379 H508" marker-end="url(#arwB)"/>
+              <path class="d-a" d="M716 379 H760" marker-end="url(#arwB)"/>
+              <path class="d-a" d="M858 420 V452 H110 V486" marker-end="url(#arwB)"/>
+              <text class="d-lbl" x="120" y="446">30분 지연</text>
+
+              <!-- row 4 -->
+              <rect class="d-box" x="8" y="488" width="204" height="74"/>
+              <text class="d-t" x="26" y="514">지연 트리거</text>
+              <text class="d-s" x="26" y="533">REST 래퍼 · Sensor 회피</text>
+
+              <rect class="d-box" x="260" y="488" width="204" height="74"/>
+              <text class="d-t" x="278" y="514">검증 완료 assertion</text>
+              <text class="d-s" x="278" y="533">valid + invalid = total</text>
+
+              <rect class="d-store" x="512" y="488" width="204" height="74" rx="12"/>
+              <text class="d-t" x="530" y="514">S3 · parquet 적재</text>
+              <text class="d-s" x="530" y="533">최종 리드</text>
+
+              <rect class="d-ext" x="764" y="488" width="188" height="74"/>
+              <text class="d-t" x="782" y="514">캠페인 삭제</text>
+              <text class="d-s" x="782" y="533">contact quota 회수</text>
+
+              <path class="d-a" d="M212 525 H256" marker-end="url(#arwB)"/>
+              <path class="d-a" d="M464 525 H508" marker-end="url(#arwB)"/>
+              <path class="d-a" d="M716 525 H760" marker-end="url(#arwB)"/>
+
+              <!-- 계측 바 -->
+              <rect class="d-llm" x="8" y="600" width="944" height="52"/>
+              <text class="d-acc" x="28" y="622">계측</text>
+              <text class="d-s" x="76" y="622">run 종료 시 토큰(cached 분리) · Apollo 크레딧 리포트 — task 간 XCom 누적, 단일 리포트로 집계</text>
+              <text class="d-s" x="76" y="641">탐색 상한 도달 시 “수율 저조, 필터 재설정 필요” 경보</text>
+
+              <!-- legend -->
+              <g>
+                <rect class="d-box" x="8" y="674" width="18" height="12"/>
+                <text class="d-lbl" x="34" y="684">내부 처리</text>
+                <rect class="d-ext" x="128" y="674" width="18" height="12"/>
+                <text class="d-lbl" x="154" y="684">외부 시스템</text>
+                <rect class="d-store" x="256" y="674" width="18" height="12" rx="4"/>
+                <text class="d-lbl" x="282" y="684">데이터 저장소</text>
+                <rect class="d-llm" x="392" y="674" width="18" height="12"/>
+                <text class="d-lbl" x="418" y="684">LLM 호출</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>다이어그램 B — 리드 소싱 흐름 (고객사 단위 run)</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="ls-s3t">
+        <span class="eyebrow">03</span>
+        <h2 class="sec-title" id="ls-s3t">설계 결정</h2>
+        <div class="decisions narrow" style="margin-top: var(--s8);">
+          <article class="decision">
+            <div>
+              <h3>2단 LLM 심사로 리드 품질을 만든다</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>1차는 기업 설명을 ICP와 대조해 적합 여부를 판정하고(수출 유형 4종별 별도 system prompt), 2차는 적합 기업의 재직자 목록에서 ICP 타깃 직무에 가장 맞는 1인을 선택합니다. 재직자가 1명이면 LLM을 생략합니다.</dd></div>
+                <div><dt>왜</dt><dd>기업 적합과 담당자 적합은 판단 근거가 다릅니다. 한 번에 물으면 둘 다 흐려집니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>단일 호출로 합치면 프롬프트가 길어지고, 어느 단계에서 틀렸는지 추적할 수 없습니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="decision">
+            <div>
+              <h3>API 응답 shape 그대로의 캐시 테이블</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>Apollo 기업·컨택 응답을 컬럼 1:1로 PostgreSQL에 저장합니다. 벌크 조회 1회로 페이지 전체의 히트를 판정하고, 동시 실행에 대비해 <code>ON CONFLICT DO NOTHING</code>을 씁니다.</dd></div>
+                <div><dt>왜</dt><dd>히트와 미스의 하류 코드 경로가 동일해져, 캐시가 있다는 사실이 로직에 새지 않습니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>정규화한 스키마로 저장하면 매핑 코드가 두 벌 생기고 API 변경에 취약해집니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="decision">
+            <div>
+              <h3>중복 소싱을 API 호출 전에 막는다</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>이전 run의 검수 이력(S3)을 모두 대조해, 이미 본 기업은 검색 결과 단계에서 스킵합니다.</dd></div>
+                <div><dt>왜</dt><dd>중복은 크레딧과 신뢰를 동시에 깎습니다. 업로드 중복 0건을 유지하고 있습니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>업로드 직전 dedupe는 이미 지불한 enrich 크레딧을 회수할 수 없습니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="decision">
+            <div>
+              <h3>부분 성공을 버리지 않는다</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>429는 지수 백오프 5회 후 sentinel로 중단하되, 그때까지 확보한 분량은 저장합니다. 탐색 상한에 도달하면 “수율 저조, 필터 재설정 필요” 경보를 냅니다.</dd></div>
+                <div><dt>왜</dt><dd>외부 API 한도는 통제 밖입니다. run 전체를 실패로 처리하면 그날의 결과물이 0이 됩니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>전량 성공만 커밋하는 방식은 재실행 비용이 그대로 다시 듭니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="decision">
+            <div>
+              <h3>비용을 run 단위로 계측한다</h3>
+              <dl>
+                <div><dt>무엇을</dt><dd>토큰(캐시 적중분 분리)과 API 크레딧을 task 간 XCom으로 누적해, run 종료 시 단일 리포트로 남깁니다.</dd></div>
+                <div><dt>왜</dt><dd>측정하지 않으면 프롬프트 수정이 비용에 어떤 영향을 줬는지 말할 수 없습니다.</dd></div>
+                <div><dt>대안 대비</dt><dd>대량 반복 판정은 reasoning 없이, 저빈도 고난도만 medium으로 — 워크로드별 분리는 이 계측이 있어서 판단할 수 있었습니다.</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="ls-s4t">
+        <span class="eyebrow">04</span>
+        <h2 class="sec-title" id="ls-s4t">프롬프트 구조</h2>
+        <p class="sec-note narrow">판별은 보수적으로, 선택은 우선순위로.</p>
+        <div class="grid g2 wide" style="margin-top: var(--s8);">
+          <article class="card">
+            <h3>1차 기업 판별 = 노이즈 필터</h3>
+            <p>“정밀 매칭이 아니라 명백한 오분류만 걸러낸다”를 프롬프트가 스스로 선언합니다. 하드 제외(경쟁사)는 보수적으로, 나머지는 “연결 가능성이 조금이라도 있으면 eligible”. recall 우선을 명시해 리드 수율을 지킵니다.</p>
+            <p>수출 유형별로 “누가 경쟁사이고 누가 바이어인가”의 정의가 달라, system prompt 4개로 분기합니다.</p>
+          </article>
+          <article class="card">
+            <h3>2차 담당자 선택 = 우선순위 체인</h3>
+            <p><code>contact_fit</code>·<code>target_jobtitles</code> 매치 → 도메인 관련성 → 직급(<code>target_seniorities</code>) → 임원 fallback 순서를 번호로 고정합니다. 제외 직무(assistant·intern 등)를 명시합니다.</p>
+            <p>출력은 “목록에 있는 id를 그대로 복사”만 허용합니다.</p>
+          </article>
+        </div>
+        <div class="narrow" style="margin-top: var(--s10);">
+          <h3 style="font-size:17px; font-weight:600;">출력 계약</h3>
+          <div class="scroll-x" style="margin-top: var(--s4);">
+            <table>
+              <thead>
+                <tr><th scope="col" style="width:26%">단계</th><th scope="col">출력</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">1차 기업 판별</th><td><code>{"eligible": "eligible" | "ineligible"}</code> — JSON 한 필드</td></tr>
+                <tr><th scope="row">2차 담당자 선택</th><td>raw id 문자열 하나</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note-box">파싱 실패는 <b>None으로 스킵</b>하고, 실행 전체를 멈추지 않습니다.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="ls-s5t">
+        <span class="eyebrow">05</span>
+        <h2 class="sec-title" id="ls-s5t">운영과 비용 통제</h2>
+        <ul class="ops narrow" style="margin-top: var(--s6);">
+          <li><b>쿼터 × 1.33 오버소싱</b> — 이메일 검증 단계의 손실을 보정해 약속한 건수를 채웁니다</li>
+          <li>이메일 검증 완료 <b>assertion(valid + invalid = total)</b> 실패 시 캠페인을 삭제하지 않고 보존</li>
+          <li>export 후 <b>캠페인 자동 삭제</b>로 contact quota 회수</li>
+          <li>30분 지연 트리거를 <b>REST API 래퍼</b>로 구현 — Sensor가 워커 슬롯을 점유하지 않습니다</li>
+          <li>프롬프트 <b>S3 외부화</b>, ICP JSON <b>정렬 직렬화</b>로 prompt cache 적중 유도</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="ls-s6t">
+        <span class="eyebrow">06</span>
+        <h2 class="sec-title" id="ls-s6t">결과</h2>
+        <div class="wide" style="margin-top: var(--s6);">
+          <div class="scroll-x">
+            <table>
+              <caption>2026-07~09 운영 로그 기준</caption>
+              <thead>
+                <tr><th scope="col" style="width:46%">항목</th><th scope="col">값</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">제공 규모</th><td class="figure-cell">월 30~40 고객사 × 약 300건</td></tr>
+                <tr><th scope="row">기업 적합 판정률</th><td class="figure-cell">약 35%</td></tr>
+                <tr><th scope="row">리드 상세 API 호출 절감 (캐시)</th><td class="figure-cell">약 28%</td></tr>
+                <tr><th scope="row">업로드 중복</th><td class="figure-cell">0건</td></tr>
+                <tr><th scope="row">run당 소요</th><td class="figure-cell">평균 약 50분</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">근거 시점: 2026-07~09 운영 로그</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="ls-s7t">
+        <span class="eyebrow">07</span>
+        <h2 class="sec-title" id="ls-s7t">배운 점과 한계</h2>
+        <div class="lessons narrow" style="margin-top: var(--s6);">
+          <article class="lesson">
+            <h3>배운 점 — 캐시는 스키마를 바꾸지 않을 때 가장 싸다</h3>
+            <p>API 응답 shape을 그대로 저장한 덕분에 히트/미스 분기가 조회 함수 안에서 끝났습니다. 캐시를 붙이면서 하류 로직을 한 줄도 고치지 않았고, 이후 응답 필드가 늘어날 때도 컬럼 추가로 흡수했습니다.</p>
+          </article>
+          <article class="lesson">
+            <h3>한계 — 2차 선택 출력에 사전 검증이 없다</h3>
+            <p>2차 담당자 선택의 LLM 출력(id)을 후보 목록과 대조하는 코드 검증이 없습니다. hallucination이 발생하면 예외 없이 조용히 유실됩니다. 1차 판별과 같은 사전 검증 패턴을 적용할 예정입니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <nav class="prev-next modal-next" aria-label="다른 프로젝트">
+        <a href="#icp-inference">
+          <span class="dir">다른 프로젝트 →</span>
+          <span class="name">ICP 추론 파이프라인</span>
+        </a>
+      </nav>
+    </div>
+  </article>
+</dialog>
+
+<script>
+(function () {
+  var modals = Array.prototype.slice.call(document.querySelectorAll("dialog.modal"));
+  if (!modals.length || typeof modals[0].showModal !== "function") return;
+  var navigated = false;
+
+  function closeAll() {
+    modals.forEach(function (d) { if (d.open) d.close(); });
+  }
+
+  function sync() {
+    var id = decodeURIComponent(location.hash.replace("#", ""));
+    var target = id ? document.getElementById(id) : null;
+    if (target && target.tagName === "DIALOG") {
+      modals.forEach(function (d) { if (d !== target && d.open) d.close(); });
+      if (!target.open) target.showModal();
+      var body = target.querySelector(".modal-body");
+      if (body) body.scrollTop = 0;
+    } else {
+      closeAll();
+    }
+  }
+
+  // 닫기: 링크로 열었으면 뒤로가기, 직접 진입이면 해시만 제거
+  function dismiss() {
+    if (navigated && location.hash) { history.back(); return; }
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    closeAll();
+  }
+
+  window.addEventListener("hashchange", function () { navigated = true; sync(); });
+  sync();
+
+  modals.forEach(function (d) {
+    d.addEventListener("click", function (e) { if (e.target === d) dismiss(); });
+    d.addEventListener("cancel", function (e) { e.preventDefault(); dismiss(); });
+    Array.prototype.forEach.call(d.querySelectorAll("[data-close]"), function (btn) {
+      btn.addEventListener("click", dismiss);
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
