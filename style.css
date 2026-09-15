@@ -4,6 +4,8 @@
    Tokens — DeepSales Design System 기반
    ============================================================ */
 :root {
+  color-scheme: light;
+
   --font-sans: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
     "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
   --font-mono: "SFMono-Regular", ui-monospace, "JetBrains Mono", Menlo, Consolas,
@@ -23,6 +25,11 @@
   --accent-soft: #ebf2ff;
   --accent-ink: #ffffff;
 
+  /* 헤더 모노그램 */
+  --mark-bg: #1c2027;
+  --mark-fg: #e6e8ec;
+  --mark-stem: #0057ff;
+
   --w-text: 720px;
   --w-wide: 960px;
   --w-page: 1208px;
@@ -30,24 +37,6 @@
   --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px; --s5: 20px;
   --s6: 24px; --s8: 32px; --s10: 40px; --s12: 48px; --s16: 64px;
   --s20: 80px; --s24: 96px; --s32: 128px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111111;
-    --surface: #191919;
-    --surface-2: #1f1f1f;
-    --ink: #fafafa;
-    --ink-2: #e0e0e0;
-    --muted: #b0b0b0;
-    --faint: #888888;
-    --line: #333333;
-    --line-strong: #555555;
-    --accent: #7aaeff;
-    --accent-strong: #a8caff;
-    --accent-soft: #16243d;
-    --accent-ink: #06142c;
-  }
 }
 
 /* ============================================================
@@ -88,14 +77,35 @@ code, .mono, .num { font-family: var(--font-mono); font-variant-numeric: tabular
 }
 .site-head .bar {
   max-width: var(--w-page); margin: 0 auto; padding: var(--s4) var(--s6);
-  display: flex; align-items: baseline; justify-content: space-between; gap: var(--s6);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s6);
   flex-wrap: wrap;
 }
-.site-head .who { display: flex; align-items: baseline; gap: var(--s3); }
-.site-head .who b { color: var(--ink); font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
-.site-head .who span { color: var(--faint); font-size: 12px; }
-.site-head nav ul { display: flex; gap: var(--s5); list-style: none; margin: 0; padding: 0; }
-.site-head nav a { font-size: 13px; color: var(--muted); text-decoration: none; }
+.site-head .who {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  color: inherit; text-decoration: none;
+}
+.site-head .who .mark { width: 20px; height: 20px; flex: none; display: block; }
+.site-head .who .name { color: var(--ink); font-size: 15px; font-weight: 600; letter-spacing: -0.02em; }
+.site-head .who .rule {
+  width: 1px; height: 12px; flex: none; margin: 0 var(--s1);
+  background: var(--line-strong);
+}
+.site-head .who .role {
+  font-family: var(--font-mono); font-size: 11px; line-height: 1;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint);
+}
+.site-head .who:hover .name { color: var(--accent); }
+.site-head .who:hover .rule { background: var(--accent); }
+.site-head .who:hover .role { color: var(--muted); }
+.site-head nav ul {
+  display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5);
+  list-style: none; margin: 0; padding: 0;
+}
+.site-head nav a {
+  font-family: var(--font-mono); font-size: 11.5px; line-height: 1;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+}
 .site-head nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
 .site-head nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
 
@@ -112,21 +122,30 @@ section:first-of-type { border-top: 0; }
 /* ============================================================
    Hero
    ============================================================ */
-.hero { padding: var(--s24) 0 var(--s20); }
+.hero { padding: var(--s32) 0 var(--s20); position: relative; overflow-x: clip; }
+.hero-head { display: flex; align-items: center; gap: 28px; }
+.hero-id { min-width: 0; }
+.hero-portrait {
+  flex: none; width: 120px; height: 160px; object-fit: cover; object-position: center top;
+  border-radius: 10px; border: 1px solid var(--line); display: block;
+}
 .hero h1 { font-size: 52px; font-weight: 700; letter-spacing: -0.035em; }
 .hero .romanized { font-size: 14px; color: var(--faint); font-weight: 400; letter-spacing: 0.04em; margin-left: var(--s3); }
 .hero .role { margin-top: var(--s4); font-size: 17px; color: var(--ink); font-weight: 500; }
 .hero .org { color: var(--muted); font-size: 15px; margin-top: var(--s1); }
-.hero .lede { margin-top: var(--s8); font-size: 18px; line-height: 1.75; color: var(--ink-2); max-width: 42em; }
+.hero .tagline { margin-top: var(--s5); font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 34em; }
+.lede { margin-top: var(--s8); font-size: 18px; line-height: 1.75; color: var(--ink-2); max-width: 42em; }
 
 .links { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); margin-top: var(--s10); padding: 0; list-style: none; }
+/* 메일은 한 줄을 다 차지해 나머지 셋을 아랫줄로 내린다 */
+.links li:first-child { flex-basis: 100%; }
 .links a {
   display: inline-flex; align-items: center; gap: var(--s2);
   font-size: 14px; color: var(--ink-2); text-decoration: none;
   border-bottom: 1px solid var(--line-strong); padding-bottom: 2px;
 }
 .links a:hover { color: var(--accent); border-color: var(--accent); }
-.links svg { width: 16px; height: 16px; flex: none; color: var(--muted); }
+.links svg { width: 18px; height: 18px; flex: none; display: block; color: var(--muted); }
 .links a:hover svg { color: var(--accent); }
 
 /* ============================================================
@@ -205,8 +224,67 @@ section:first-of-type { border-top: 0; }
 /* ============================================================
    Footer
    ============================================================ */
-.site-foot { border-top: 1px solid var(--line); padding: var(--s16) 0 var(--s20); }
-.site-foot .updated { margin-top: var(--s6); font-family: var(--font-mono); font-size: 12px; color: var(--faint); }
+
+/* ============================================================
+   맨 위로 버튼
+   ============================================================ */
+.to-top {
+  position: fixed; right: var(--s6); bottom: var(--s6); z-index: 40;
+  width: 44px; height: 44px; padding: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--line-strong); border-radius: 9999px;
+  background: var(--bg); color: var(--muted); cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateY(6px);
+}
+.to-top.is-on { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+.to-top:hover { color: var(--accent); border-color: var(--accent); }
+.to-top svg { width: 20px; height: 20px; display: block; }
+
+/* ============================================================
+   섹션 여백의 사진 — 본문 칼럼 바깥 거터에만 놓는다
+   ============================================================ */
+.hero-photos { position: absolute; inset: 0; }
+#career, #projects, #certificates { position: relative; overflow-x: clip; }
+
+.hp {
+  position: absolute;
+  --rot: 0deg;
+  --amp: 1.2deg;
+  transform: rotate(var(--rot));
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+  pointer-events: none;
+}
+
+/* 다섯 장 모두 같은 기준: 본문 칼럼(50% ± 480px) 옆에 붙인다.
+   calc 상수 = 칼럼 절반 480 − 칼럼 안쪽 여백 24 + 글자까지 12 + 사진 폭 + 회전 모서리 절반
+   폭을 140~152px 로 맞춰 다섯 장이 같은 덩치로 보이게 했다 */
+
+/* 다섯 장 모두 섹션 경계선 위에 절반씩 걸친다.
+   섹션의 overflow-x 는 clip 이지만 세로는 visible 이라 넘어갈 수 있고,
+   절대 위치라 다음 섹션의 배경·경계선 위에 그려진다.
+   세로 오프셋 = 사진 높이의 절반(음수) */
+
+/* 히어로 ↔ 소개 — 1번 산, 오른쪽 */
+.hp-1 { right: calc(50% - 625px);  bottom: -124px; width: 150px; height: 248px; --rot: -4deg; --amp: 1.1deg; }
+
+/* 소개 ↔ 경력 — 4번 기차역, 왼쪽 (경력 섹션 소유) */
+.hp-4 { left: calc(50% - 621px); top: -112px;    width: 145px; height: 223px; --rot: -3deg; --amp: 1.4deg; }
+
+/* 경력 ↔ 대표 프로젝트 — 2번 러닝, 오른쪽 (프로젝트 섹션 소유) */
+.hp-2 { right: calc(50% - 629px);  top: -97px;     width: 158px; height: 193px; --rot: 3deg;  --amp: 1.3deg; }
+
+/* 대표 프로젝트 ↔ 학력 — 3번 야구장, 왼쪽 */
+.hp-3 { left: calc(50% - 625px); bottom: -80px;  width: 152px; height: 159px; --rot: 2.5deg; --amp: 1deg; }
+
+/* 자격증 ↔ 기술 스택 — 5번 볼더링, 오른쪽 */
+.hp-5 { right: calc(50% - 622px);  bottom: -92px;  width: 146px; height: 184px; --rot: 4deg;  --amp: 1.2deg; }
+
+/* 거터가 사진 폭에 못 미치면 본문을 침범한다 */
+@media (max-width: 1279px) {
+  .hp { display: none; }
+}
 
 /* ============================================================
    Detail page
@@ -413,9 +491,11 @@ dialog.modal::backdrop { background: rgba(0, 0, 0, 0.5); }
   section { padding: var(--s16) 0; }
   .wrap, .wrap-wide, .detail { padding: 0 var(--s5); }
   .hero { padding: var(--s16) 0 var(--s12); }
+  .hero-head { gap: var(--s5); }
+  .hero-portrait { width: 96px; height: 128px; }
   .hero h1 { font-size: 34px; }
   .hero .romanized { display: block; margin: var(--s2) 0 0; }
-  .hero .lede { font-size: 16.5px; margin-top: var(--s6); }
+  .lede { font-size: 16.5px; margin-top: var(--s6); }
   .sec-title { font-size: 22px; }
   .g3, .g2, .prev-next { grid-template-columns: minmax(0, 1fr); }
   .card-major { padding: var(--s6); }
@@ -431,7 +511,9 @@ dialog.modal::backdrop { background: rgba(0, 0, 0, 0.5); }
   .decision { grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
   .decision dl > div { grid-template-columns: 52px minmax(0, 1fr); gap: var(--s3); }
   .diagram { padding: var(--s4); }
-  .site-head nav ul { gap: var(--s4); }
+  .to-top { right: var(--s5); bottom: var(--s5); width: 40px; height: 40px; }
+  .site-head nav ul { gap: var(--s2) var(--s4); }
+  .site-head nav a { font-size: 10.5px; letter-spacing: 0.06em; }
   dialog.modal { padding: 0; }
   .modal-box { max-height: 100%; height: 100%; border: 0; border-radius: 0; }
   .modal-head { padding: var(--s5); }
@@ -442,12 +524,19 @@ dialog.modal::backdrop { background: rgba(0, 0, 0, 0.5); }
   .modal-intro .summary { font-size: 16px; }
 }
 
-@media (prefers-color-scheme: dark) {
-  dialog.modal::backdrop { background: rgba(0, 0, 0, 0.72); }
-  .modal-box { box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6); }
-}
-
 @media (prefers-reduced-motion: no-preference) {
+  @keyframes hp-sway {
+    0%, 100% { transform: rotate(calc(var(--rot) - var(--amp))); }
+    50%      { transform: rotate(calc(var(--rot) + var(--amp))); }
+  }
+  .hp { animation: hp-sway var(--dur) ease-in-out var(--delay) infinite; }
+  .hp-1 { --dur: 8.5s; --delay: -1.2s; }
+  .hp-2 { --dur: 7.2s; --delay: -3.4s; }
+  .hp-3 { --dur: 9.1s; --delay: -0.6s; }
+  .hp-4 { --dur: 7.8s; --delay: -4.9s; }
+  .hp-5 { --dur: 8.2s; --delay: -2.1s; }
+
+  .to-top { transition: opacity 0.18s ease, visibility 0.18s, transform 0.18s ease; }
   dialog.modal[open] .modal-box { animation: modal-in 0.18s ease-out; }
   @keyframes modal-in {
     from { opacity: 0; transform: translateY(8px); }
@@ -457,6 +546,6 @@ dialog.modal::backdrop { background: rgba(0, 0, 0, 0.5); }
 
 @media print {
   body { background: #fff; }
-  .toc, .site-head nav { display: none; }
+  .toc, .site-head nav, .to-top, .hp { display: none; }
   dialog.modal { display: none !important; }
 }
