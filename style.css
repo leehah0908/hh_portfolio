@@ -16,6 +16,7 @@
   --surface-2: #f5f5f5;
   --ink: #000000;
   --ink-2: #333333;
+  --ink-lede: #2a2a2a; /* 히어로·소개 문단 전용, ink-2 보다 한 톤 진하게 */
   --muted: #666666;
   --faint: #999999;
   --line: #e0e0e0;
@@ -123,29 +124,49 @@ section:first-of-type { border-top: 0; }
    Hero
    ============================================================ */
 .hero { padding: var(--s32) 0 var(--s20); position: relative; overflow-x: clip; }
+/* 왼쪽은 이름·소개·링크, 오른쪽 여백에는 사진 한 장 */
+.hero .wrap-wide {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--s12); align-items: center;
+}
+.hero .hero-head, .hero .tagline, .hero .links { grid-column: 1; }
+.hero-snap {
+  grid-column: 2; grid-row: 1 / -1; justify-self: end; align-self: center;
+  flex: none; width: 210px; height: auto; display: block;
+  --rot: -4deg; --amp: 1.1deg;
+  transform: rotate(var(--rot));
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+}
 .hero-head { display: flex; align-items: center; gap: 28px; }
 .hero-id { min-width: 0; }
+/* 사진 자체에 흰 여백이 있어 프레임은 얇은 선 하나로만 두고,
+   모서리는 인화 사진처럼 거의 각지게. 원본 비율(467:609)을 그대로 쓴다 */
 .hero-portrait {
-  flex: none; width: 120px; height: 160px; object-fit: cover; object-position: center top;
-  border-radius: 10px; border: 1px solid var(--line); display: block;
+  flex: none; width: 130px; height: auto; aspect-ratio: 467 / 609;
+  object-fit: cover; object-position: center;
+  border-radius: 4px; border: 1px solid var(--line);
+  background: var(--bg); display: block;
 }
 .hero h1 { font-size: 52px; font-weight: 700; letter-spacing: -0.035em; }
 .hero .romanized { font-size: 14px; color: var(--faint); font-weight: 400; letter-spacing: 0.04em; margin-left: var(--s3); }
 .hero .role { margin-top: var(--s4); font-size: 17px; color: var(--ink); font-weight: 500; }
 .hero .org { color: var(--muted); font-size: 15px; margin-top: var(--s1); }
-.hero .tagline { margin-top: var(--s5); font-size: 16px; line-height: 1.7; color: var(--ink-2); max-width: 34em; }
-.lede { margin-top: var(--s8); font-size: 18px; line-height: 1.75; color: var(--ink-2); max-width: 42em; }
+.hero .tagline { margin-top: var(--s5); font-size: 17px; line-height: 1.7; color: var(--ink-lede); max-width: none; text-indent: 0.5em; }
+.lede { margin-top: var(--s8); font-size: 16.5px; line-height: 1.65; color: var(--ink-lede); max-width: none; }
+/* 문단마다 첫 줄 들여쓰기, 문단 사이는 한 칸 띈다 */
+.lede p { margin: 0; text-indent: 0.5em; }
+.lede p + p { margin-top: var(--s3); }
 
 .links { display: flex; flex-wrap: wrap; gap: var(--s3) var(--s5); margin-top: var(--s10); padding: 0; list-style: none; }
 /* 메일은 한 줄을 다 차지해 나머지 셋을 아랫줄로 내린다 */
 .links li:first-child { flex-basis: 100%; }
 .links a {
   display: inline-flex; align-items: center; gap: var(--s2);
-  font-size: 14px; color: var(--ink-2); text-decoration: none;
+  font-size: 15px; color: var(--ink-2); text-decoration: none;
   border-bottom: 1px solid var(--line-strong); padding-bottom: 2px;
 }
 .links a:hover { color: var(--accent); border-color: var(--accent); }
-.links svg { width: 18px; height: 18px; flex: none; display: block; color: var(--muted); }
+.links svg { width: 19px; height: 19px; flex: none; display: block; color: var(--muted); }
 .links a:hover svg { color: var(--accent); }
 
 /* ============================================================
@@ -245,7 +266,6 @@ section:first-of-type { border-top: 0; }
 /* ============================================================
    섹션 여백의 사진 — 본문 칼럼 바깥 거터에만 놓는다
    ============================================================ */
-.hero-photos { position: absolute; inset: 0; }
 #career, #projects, #certificates { position: relative; overflow-x: clip; }
 
 .hp {
@@ -257,20 +277,17 @@ section:first-of-type { border-top: 0; }
   pointer-events: none;
 }
 
-/* 다섯 장 모두 같은 기준: 본문 칼럼(50% ± 480px) 옆에 붙인다.
+/* 1번은 히어로 안(.hero-snap)에 두고, 나머지 네 장만 거터에 놓는다.
    calc 상수 = 칼럼 절반 480 − 칼럼 안쪽 여백 24 + 글자까지 12 + 사진 폭 + 회전 모서리 절반
-   폭을 140~152px 로 맞춰 다섯 장이 같은 덩치로 보이게 했다 */
+   폭을 140~158px 로 맞춰 네 장이 같은 덩치로 보이게 했다 */
 
-/* 다섯 장 모두 섹션 경계선 위에 절반씩 걸친다.
+/* 네 장 모두 섹션 경계선 위에 절반씩 걸친다.
    섹션의 overflow-x 는 clip 이지만 세로는 visible 이라 넘어갈 수 있고,
    절대 위치라 다음 섹션의 배경·경계선 위에 그려진다.
    세로 오프셋 = 사진 높이의 절반(음수) */
 
-/* 히어로 ↔ 소개 — 1번 산, 오른쪽 */
-.hp-1 { right: calc(50% - 625px);  bottom: -124px; width: 150px; height: 248px; --rot: -4deg; --amp: 1.1deg; }
-
 /* 소개 ↔ 경력 — 4번 기차역, 왼쪽 (경력 섹션 소유) */
-.hp-4 { left: calc(50% - 621px); top: -112px;    width: 145px; height: 223px; --rot: -3deg; --amp: 1.4deg; }
+.hp-4 { left: calc(50% - 675px); top: -112px;    width: 145px; height: 223px; --rot: -3deg; --amp: 1.4deg; }
 
 /* 경력 ↔ 대표 프로젝트 — 2번 러닝, 오른쪽 (프로젝트 섹션 소유) */
 .hp-2 { right: calc(50% - 629px);  top: -97px;     width: 158px; height: 193px; --rot: 3deg;  --amp: 1.3deg; }
@@ -284,6 +301,12 @@ section:first-of-type { border-top: 0; }
 /* 거터가 사진 폭에 못 미치면 본문을 침범한다 */
 @media (max-width: 1279px) {
   .hp { display: none; }
+}
+
+/* 본문 칼럼이 좁아지면 히어로 사진은 접는다 */
+@media (max-width: 899px) {
+  .hero .wrap-wide { display: block; }
+  .hero-snap { display: none; }
 }
 
 /* ============================================================
@@ -492,10 +515,10 @@ dialog.modal::backdrop { background: rgba(0, 0, 0, 0.5); }
   .wrap, .wrap-wide, .detail { padding: 0 var(--s5); }
   .hero { padding: var(--s16) 0 var(--s12); }
   .hero-head { gap: var(--s5); }
-  .hero-portrait { width: 96px; height: 128px; }
+  .hero-portrait { width: 104px; height: auto; }
   .hero h1 { font-size: 34px; }
   .hero .romanized { display: block; margin: var(--s2) 0 0; }
-  .lede { font-size: 16.5px; margin-top: var(--s6); }
+  .lede { margin-top: var(--s6); }
   .sec-title { font-size: 22px; }
   .g3, .g2, .prev-next { grid-template-columns: minmax(0, 1fr); }
   .card-major { padding: var(--s6); }
@@ -525,12 +548,15 @@ dialog.modal::backdrop { background: rgba(0, 0, 0, 0.5); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* 헤더 메뉴·맨 위로 링크 등 앵커 이동은 스크롤로 */
+  html { scroll-behavior: smooth; }
+
   @keyframes hp-sway {
     0%, 100% { transform: rotate(calc(var(--rot) - var(--amp))); }
     50%      { transform: rotate(calc(var(--rot) + var(--amp))); }
   }
-  .hp { animation: hp-sway var(--dur) ease-in-out var(--delay) infinite; }
-  .hp-1 { --dur: 8.5s; --delay: -1.2s; }
+  .hp, .hero-snap { animation: hp-sway var(--dur) ease-in-out var(--delay) infinite; }
+  .hero-snap { --dur: 8.5s; --delay: -1.2s; }
   .hp-2 { --dur: 7.2s; --delay: -3.4s; }
   .hp-3 { --dur: 9.1s; --delay: -0.6s; }
   .hp-4 { --dur: 7.8s; --delay: -4.9s; }
@@ -546,6 +572,6 @@ dialog.modal::backdrop { background: rgba(0, 0, 0, 0.5); }
 
 @media print {
   body { background: #fff; }
-  .toc, .site-head nav, .to-top, .hp { display: none; }
+  .toc, .site-head nav, .to-top, .hp, .hero-snap { display: none; }
   dialog.modal { display: none !important; }
 }
