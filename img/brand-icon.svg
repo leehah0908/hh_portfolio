@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- 자미별 캐릭터 트리오: tam(좌) · dong(우) 후면, jami(중앙) 전면.
+       app/icon.svg(파비콘)와 동일 아트 — 헤더 로고용 사본. -->
+
+  <!-- tam — 분홍 · 꽃 (좌, 후면) -->
+  <g transform="translate(2 31) scale(0.5)">
+    <circle cx="50" cy="54" r="45" fill="#ee7fa3" stroke="#fff" stroke-width="3"/>
+    <g fill="#ff5fa0">
+      <circle cx="50" cy="13" r="5"/>
+      <circle cx="43" cy="18" r="5"/>
+      <circle cx="57" cy="18" r="5"/>
+      <circle cx="46" cy="24" r="5"/>
+      <circle cx="54" cy="24" r="5"/>
+      <circle cx="50" cy="19" r="3.6" fill="#ffd24a"/>
+    </g>
+    <path d="M32 54 q6 -5 12 0" stroke="#2a2233" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    <circle cx="62" cy="54" r="6.2" fill="#2a2233"/>
+    <path d="M39 64 q11 9 22 0 Z" fill="#2a2233"/>
+    <g stroke="#ff9bb0" stroke-width="3" stroke-linecap="round">
+      <line x1="24" y1="63" x2="29.5" y2="63"/>
+      <line x1="70.5" y1="63" x2="76" y2="63"/>
+    </g>
+  </g>
+
+  <!-- dong — 파랑 · 프로펠러 모자 (우, 후면) -->
+  <g transform="translate(48 31) scale(0.5)">
+    <circle cx="50" cy="54" r="45" fill="#5bb6e0" stroke="#fff" stroke-width="3"/>
+    <g>
+      <path d="M36 28 q14 -11 28 0 Z" fill="#2f8fbf"/>
+      <rect x="47" y="10" width="6" height="9" rx="3" fill="#2f8fbf"/>
+      <ellipse cx="38" cy="10" rx="11" ry="4.5" fill="#ffd24a"/>
+      <ellipse cx="62" cy="10" rx="11" ry="4.5" fill="#ff7a4d"/>
+      <circle cx="50" cy="10" r="3.4" fill="#2a2233"/>
+    </g>
+    <g fill="#2a2233">
+      <circle cx="38" cy="55" r="7"/>
+      <circle cx="62" cy="55" r="7"/>
+      <circle cx="40" cy="52" r="2.4" fill="#fff"/>
+      <circle cx="64" cy="52" r="2.4" fill="#fff"/>
+    </g>
+    <path d="M38 64 q12 10 24 0 Z" fill="#2a2233"/>
+    <g stroke="#ff9bb0" stroke-width="3" stroke-linecap="round">
+      <line x1="24" y1="63" x2="29.5" y2="63"/>
+      <line x1="70.5" y1="63" x2="76" y2="63"/>
+    </g>
+  </g>
+
+  <!-- jami — 보라 · 황금 왕관 (중앙, 전면) -->
+  <g transform="translate(17 10.36) scale(0.66)">
+    <circle cx="50" cy="54" r="45" fill="#7c5cd0" stroke="#fff" stroke-width="3"/>
+    <g>
+      <rect x="32" y="26" width="36" height="6" rx="2" fill="#e0a93a"/>
+      <path d="M33 29 L35 13 L43 22 L50 9 L57 22 L65 13 L67 29 Z" fill="#f4cf5e"/>
+      <circle cx="50" cy="13" r="2.8" fill="#e8513b"/>
+    </g>
+    <g fill="#2a2233"><circle cx="38" cy="54" r="6.2"/><circle cx="62" cy="54" r="6.2"/></g>
+    <path d="M39 65 q11 8 22 0" stroke="#2a2233" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+    <g stroke="#ff9bb0" stroke-width="3" stroke-linecap="round">
+      <line x1="24" y1="63" x2="29.5" y2="63"/>
+      <line x1="70.5" y1="63" x2="76" y2="63"/>
+    </g>
+  </g>
+</svg>
