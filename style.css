@@ -108,10 +108,10 @@ section { padding: var(--s20) 0; border-top: 1px solid var(--line); }
 section:first-of-type { border-top: 0; }
 .eyebrow {
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--faint); margin-bottom: var(--s4);
+  text-transform: uppercase; color: var(--muted); margin-bottom: var(--s4);
   display: block;
 }
-.sec-title { font-size: 26px; font-weight: 600; }
+.sec-title { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; }
 
 /* ============================================================
    Hero
@@ -305,7 +305,7 @@ section:first-of-type { border-top: 0; }
   .hero h1 { font-size: 34px; }
   .hero .romanized { display: block; margin: var(--s2) 0 0; }
   .lede { margin-top: var(--s6); }
-  .sec-title { font-size: 22px; }
+  .sec-title { font-size: 28px; }
   .job { grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
   .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .job .when { padding-top: 0; padding-left: 0; }
