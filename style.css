@@ -420,14 +420,45 @@ section:first-of-type { border-top: 0; }
 /* Overview: DAG 3개 흐름 */
 .flow { margin-top: var(--s10); display: grid; gap: var(--s3); }
 .dag { border: 1px solid var(--line-strong); border-radius: 8px; padding: var(--s5) var(--s6); }
-.dag-name { font-size: 15px; font-weight: 700; color: var(--ink); }
-.steps { list-style: none; margin: var(--s4) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--s4); counter-reset: st; }
+.dag-name { font-size: 15px; font-weight: 700; color: var(--ink); display: flex; align-items: flex-end; gap: var(--s3); flex-wrap: wrap; line-height: 1.2; }
+/* DAG 이름 옆 설정값: 파란 모노, 배경 없이 */
+.dt .dag-tag {
+  display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.02em;
+  color: var(--muted); background: #f3f4f6; border: 1px solid var(--line-strong);
+  border-radius: 4px; padding: 2px 10px; line-height: 1.4;
+}
+/* 태스크 카드: 한 줄 최대 4개, 폭은 항상 4열 기준으로 고정(카드가 적어도 늘어나지 않음).
+   카드 사이 간격에 진행 화살표, 4번째 카드 뒤는 아래 줄로 이어지는 ↓ */
+.steps { list-style: none; margin: var(--s4) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s8); counter-reset: st; }
+.steps li { position: relative; }
+.steps li:not(:last-child)::after {
+  content: "→"; position: absolute; top: 50%; right: calc(-1 * var(--s8)); width: var(--s8);
+  transform: translateY(-50%); text-align: center; font-size: 16px; line-height: 1; color: var(--line-strong);
+}
+/* 줄 끝(4번째) 카드 뒤에는 화살표를 두지 않는다. 다음 줄 첫 카드는 위 카드 왼쪽 선에서 → 로 시작하고,
+   카드 본체는 화살표 폭만큼 오른쪽으로 밀린다(뒤에 카드가 없어 겹치지 않음).
+   ::before 는 번호가 쓰고 있어, 다음 줄 첫 카드가 마지막 카드일 때만 ::after 를 왼쪽 화살표로 쓴다 */
+.steps li:nth-child(4n):not(:last-child)::after { content: none; }
+.steps li:nth-child(4n + 1):not(:first-child):last-child { transform: translateX(var(--s4)); }
+.steps li:nth-child(4n + 1):not(:first-child):last-child::after {
+  content: "→"; position: absolute; top: 50%; left: calc(-1 * var(--s8)); right: auto; width: var(--s8);
+  transform: translateY(-50%); text-align: center; font-size: 16px; line-height: 1; color: var(--line-strong);
+}
+/* 카드 안 문장은 어절 단위가 아니라 글자 단위로 줄바꿈해 오른쪽 여백을 고르게 */
+.steps b, .steps span { word-break: normal; overflow-wrap: anywhere; }
 .steps li { counter-increment: st; padding: var(--s3) var(--s4); background: #fafafa; border: 1px solid var(--line); border-radius: 6px; font-size: 13.5px; line-height: 1.55; }
 .steps li::before { content: counter(st); display: block; font-family: var(--font-mono); font-size: 11px; color: var(--faint); margin-bottom: 2px; }
+/* LLM이 개입하는 태스크: 연파랑 배경 + 파란 테두리, 번호 옆에 LLM 표시 */
+.steps li.llm { background: #eef3ff; border-color: var(--accent); }
+.steps li.llm::before { content: counter(st) " · LLM 활용 태스크"; color: var(--accent); font-weight: 600; }
 .steps b { display: block; color: var(--ink); font-weight: 600; font-size: 14px; }
 .steps span { display: block; margin-top: 2px; color: var(--muted); }
-.flow-link { font-family: var(--font-mono); font-size: 11.5px; color: var(--faint); text-align: center; padding: 2px 0; }
-.flow-link::before { content: "↓ "; }
+/* DAG 사이 연결: 이전 형태 그대로, 글자색을 진하게 하고 화살표만 키움 */
+.flow-link { display: flex; align-items: center; justify-content: center; gap: var(--s2); padding: 2px 0; font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); }
+.flow-link::before { content: "↓"; font-size: 20px; line-height: 1; color: var(--ink); }
+/* 독립 실행: 화살표 대신 점선 구분 */
+.flow-indep { display: block; padding: var(--s3) 0; border-top: 0; }
+.flow-indep::before { content: ""; display: block; border-top: 1px dashed var(--line-strong); }
 .flow-notes { list-style: none; margin: var(--s5) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s2) var(--s6); font-size: 13.5px; color: var(--muted); }
 
 /* Onboarding: Before / After */
@@ -531,5 +562,13 @@ section:first-of-type { border-top: 0; }
   .tables, .tables-dm { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .toc-proj > li { grid-template-columns: 36px minmax(0, 1fr); }
   .funnel li { width: 100%; }
+  .steps { grid-template-columns: minmax(0, 1fr); }
+  .steps li:not(:last-child)::after,
+  .steps li:nth-child(4n):not(:last-child)::after {
+    content: "↓"; top: auto; right: auto; bottom: calc(-1 * var(--s8)); left: 50%; width: auto; height: var(--s8);
+    line-height: var(--s8); transform: translateX(-50%);
+  }
+  .steps li:nth-child(4n + 1):not(:first-child):last-child { transform: none; }
+  .steps li:nth-child(4n + 1):not(:first-child):last-child::after { content: none; }
   .dataflow .df-stage, .dataflow .df-out { grid-column: auto; }
 }
