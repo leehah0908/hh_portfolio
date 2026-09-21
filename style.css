@@ -379,7 +379,7 @@ section:first-of-type { border-top: 0; }
 /* 프로젝트 묶음: 회색 헤더 띠 + 챕터 섹션들 */
 .proj-head { background: #f6f7f9; border-top: 2px solid var(--ink); padding: var(--s12) 0; }
 .proj-title { font-size: 34px; font-weight: 700; letter-spacing: -0.03em; }
-.proj-lede { margin-top: var(--s4); font-size: 16px; line-height: 1.7; color: var(--ink-lede); max-width: 46em; }
+.proj-lede { margin-top: var(--s4); font-size: 16px; line-height: 1.7; color: var(--ink-lede); }
 .chapters { list-style: none; margin: var(--s6) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s2) var(--s5); counter-reset: ch; }
 .chapters li { counter-increment: ch; font-size: 13.5px; }
 .chapters li::before { content: counter(ch, decimal-leading-zero) " "; font-family: var(--font-mono); font-size: 11px; color: var(--faint); }
@@ -395,16 +395,17 @@ section:first-of-type { border-top: 0; }
   text-transform: uppercase; color: var(--faint); margin-bottom: var(--s3);
 }
 .dt-block { margin-top: var(--s10); }
-.dt-lede { margin-top: var(--s5); font-size: 16.5px; line-height: 1.7; color: var(--ink-lede); max-width: 46em; }
-.dt-p { font-size: 15.5px; line-height: 1.75; color: var(--ink-lede); max-width: 46em; }
+.dt-lede { margin-top: var(--s5); font-size: 16.5px; line-height: 1.7; color: var(--ink-lede); }
+.dt-p { font-size: 15.5px; line-height: 1.75; color: var(--ink-lede); }
 .two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s8); margin-top: var(--s10); }
 .two-col > .dt-block { margin-top: 0; }
 .fig-note { margin-top: var(--s3); font-size: 12.5px; color: var(--muted); }
 .dt code { font-size: 0.92em; background: #f3f4f6; padding: 1px 5px; border-radius: 4px; color: var(--ink); }
 
 /* Logic: 번호 원 + 문장 */
-.logic { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); counter-reset: lg; max-width: 46em; }
+.logic { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s3); counter-reset: lg; }
 .logic li { counter-increment: lg; position: relative; padding-left: 34px; font-size: 15px; line-height: 1.7; color: var(--ink-lede); }
+.logic li b { color: var(--ink); font-weight: 600; }
 .logic li::before {
   content: counter(lg); position: absolute; left: 0; top: 2px;
   width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--ink);
