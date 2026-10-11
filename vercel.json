@@ -1,4 +1,15 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/resume.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"resume.pdf\"; filename*=UTF-8''%EC%9D%B4%ED%95%9C%ED%9D%AC_%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4_%EC%9D%B4%EB%A0%A5%EC%84%9C.pdf"
+        }
+      ]
+    }
+  ]
 }
