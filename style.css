@@ -119,7 +119,7 @@ section:first-of-type { border-top: 0; }
 /* ============================================================
    Hero
    ============================================================ */
-.hero { padding: var(--s32) 0 var(--s20); position: relative; overflow-x: clip; }
+.hero { padding: var(--s32) 0 var(--s12); position: relative; overflow-x: clip; }
 /* 왼쪽은 이름·소개·링크, 오른쪽 여백에는 사진 한 장 */
 .hero .wrap-wide {
   display: grid; grid-template-columns: minmax(0, 1fr) auto;
@@ -164,6 +164,19 @@ section:first-of-type { border-top: 0; }
 .links a:hover { color: var(--accent); border-color: var(--accent); }
 .links svg { width: 19px; height: 19px; flex: none; display: block; color: var(--muted); }
 .links a:hover svg { color: var(--accent); }
+
+/* 히어로 링크 아래 이력서 PDF 다운로드. 페이지에서 유일한 채움 버튼 */
+.pdf-dl {
+  display: inline-flex; align-items: center; gap: var(--s2);
+  margin-top: var(--s8); padding: 11px 18px;
+  border-radius: 6px; background: var(--ink); color: #fff;
+  font-size: 14px; font-weight: 600; letter-spacing: -0.01em; line-height: 1;
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.pdf-dl svg { width: 16px; height: 16px; flex: none; display: block; }
+.pdf-dl:hover { background: var(--ink-2); color: #fff; transform: translateY(-1px); }
+.pdf-dl:active { transform: none; }
 
 /* ============================================================
    Timeline (경력)
@@ -302,7 +315,7 @@ section:first-of-type { border-top: 0; }
   body { font-size: 15.5px; }
   section { padding: var(--s16) 0; }
   .wrap-wide { padding: 0 var(--s5); }
-  .hero { padding: var(--s16) 0 var(--s12); }
+  .hero { padding: var(--s16) 0 var(--s6); }
   .hero-head { gap: var(--s5); }
   .hero-portrait { width: 104px; height: auto; }
   .hero h1 { font-size: 34px; }
@@ -336,7 +349,77 @@ section:first-of-type { border-top: 0; }
   .to-top { transition: opacity 0.18s ease, visibility 0.18s, transform 0.18s ease; }
 }
 
+/* ============================================================
+   Print / PDF — scripts/build-pdf.sh 가 이 규칙으로 resume.pdf 를 만든다.
+   헤더·사진·버튼은 빼고, 웹과 같은 타이포를 A4 에 맞게 조인다
+   ============================================================ */
 @media print {
-  body { background: #fff; }
-  .site-head nav, .to-top, .hp, .hero-snap { display: none; }
+  @page { size: A4; margin: 12mm 15mm; }
+  html { scroll-behavior: auto; }
+  body { background: #fff; font-size: 11.5px; line-height: 1.6; }
+  .site-head, .to-top, .hp, .hero-snap, .pdf-dl { display: none !important; }
+  .hp, .hero-snap { animation: none; }
+
+  .wrap-wide { max-width: none; padding: 0; }
+  section { padding: var(--s4) 0; }
+  section:first-of-type { padding-top: 0; }
+  /* 학력·자격증·기술 스택은 짧아서 간격이 좁으면 한 덩어리로 보인다. 섹션 사이를 넉넉히 */
+  #education, #certificates, #stack { padding: var(--s10) 0; }
+  /* 학력부터는 새 쪽에서 시작. 쪽 맨 위라 구분선·위 여백은 뺀다 */
+  #education { break-before: page; border-top: 0; padding-top: 0; }
+  .eyebrow { font-size: 8.5px; margin-bottom: var(--s1); }
+  .sec-title { font-size: 18px; }
+
+  .hero { padding: 0 0 var(--s5); }
+  .hero .wrap-wide { display: block; }
+  .hero-head { gap: var(--s5); }
+  .hero-portrait { width: 84px; }
+  .hero h1 { font-size: 30px; }
+  /* 인쇄 폭(약 680px)은 모바일 분기(767px)에 걸리므로 데스크톱 배치를 다시 지정한다 */
+  .hero .romanized { display: inline; font-size: 11px; margin: 0 0 0 var(--s2); }
+  .hero .role { margin-top: var(--s2); font-size: 12.5px; }
+  .hero .tagline { margin-top: var(--s3); font-size: 11.5px; line-height: 1.6; }
+  .links { margin-top: var(--s4); gap: var(--s2) var(--s4); }
+  .links li:first-child { flex-basis: auto; }
+  .links a { font-size: 11px; color: var(--ink-2); border-bottom: 0; padding-bottom: 0; }
+  .links svg { width: 13px; height: 13px; }
+  .lede { margin-top: var(--s4); font-size: 11.5px; line-height: 1.6; }
+
+  .timeline { margin-top: var(--s4); gap: var(--s4); }
+  .job + .job { padding-top: var(--s4); }
+  .job { grid-template-columns: 128px minmax(0, 1fr); gap: var(--s4); }
+  .job .when { font-size: 10.5px; padding-top: 2px; padding-left: var(--s4); }
+  .job .when::before { display: block; top: 7px; width: 6px; height: 6px; }
+  .job .when::after { display: none; }
+  .job .when .dur { font-size: 9.5px; }
+  .job h3 { font-size: 15px; }
+  .job .meta { font-size: 10.5px; }
+  .job .meta.proj-desc { font-size: 11.5px; }
+  .job .proj-icon { width: 20px; height: 20px; }
+  .job .works { margin-top: var(--s2); padding-top: var(--s2); gap: var(--s3); }
+  .job .work h4 { font-size: 12px; }
+  .job ul { margin-top: var(--s2); gap: var(--s1); }
+  .job ul li { font-size: 11px; line-height: 1.5; padding-left: var(--s3); }
+  .job ul li::before { top: 0.6em; }
+  .job .proj-link { font-size: 9.5px; padding: 2px 8px; }
+
+  .ledger { margin: var(--s5) 0 0; }
+  .ledger li { padding: var(--s3) 0; }
+  /* 표 밑선과 다음 섹션 윗선이 가까워 두 줄로 보이므로 밑선은 뺀다 */
+  .ledger li:last-child { border-bottom: 0; }
+  .ledger-name { font-size: 14px; }
+  .ledger-sub { font-size: 10.5px; }
+  .ledger-date { font-size: 10.5px; }
+  .ledger-label { font-size: 9.5px; }
+  .skills { margin-top: var(--s5); gap: 0 var(--s5); grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .skills li { font-size: 11px; padding: var(--s1) 0; }
+
+  /* 페이지 경계에서 항목이 쪼개지지 않게 */
+  /* 경력 한 건은 길어서 쪼개지되, 프로젝트 묶음(.work) 단위로는 붙여 둔다 */
+  .work, .ledger li, .skills li, .hero-head, .links { break-inside: avoid; }
+  /* 개인 프로젝트는 짧으니 제목과 본문이 쪽을 넘어 갈라지지 않게 한 덩어리로 */
+  #projects .job { break-inside: avoid; }
+  .eyebrow, .sec-title, h3, h4, .job .job-head, .job .meta { break-after: avoid; }
+  a { color: inherit; }
+  .links a, .job .proj-link { color: var(--ink-2); }
 }
